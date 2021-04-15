@@ -1,6 +1,6 @@
 using System;
 
-namespace systemRes.Models
+namespace reservation_system.Models
 {
     public class ErrorViewModel
     {

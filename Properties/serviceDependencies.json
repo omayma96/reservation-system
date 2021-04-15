@@ -6,7 +6,7 @@
     },
     "mssql2": {
       "type": "mssql",
-      "connectionId": "systemResContextConnection"
+      "connectionId": "reservation_systemContextConnection"
     }
   }
 }

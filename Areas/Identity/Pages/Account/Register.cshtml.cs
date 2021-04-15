@@ -13,20 +13,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using reservation_system.Models;
 
-namespace systemRes.Areas.Identity.Pages.Account
+namespace reservation_system.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<ReservationUser> _signInManager;
+        private readonly UserManager<ReservationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<ReservationUser> userManager,
+            SignInManager<ReservationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -45,6 +46,8 @@ namespace systemRes.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -60,6 +63,16 @@ namespace systemRes.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "Nom")]
+            public string FName { get;  set; }
+
+            [Required]
+            [Display(Name = "Prénom")]
+            public string LName { get; set; }
+            public string Classe { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -70,11 +83,11 @@ namespace systemRes.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ReservationUser { UserName = Input.Email, Email = Input.Email, FName = Input.FName, LName = Input.LName, Classe = Input.Classe};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
