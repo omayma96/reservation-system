@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Youcode\\Desktop\\projet asp\\reservation-system.csproj": {}
+    "C:\\Users\\Youcode\\Documents\\GitHub\\reservation-system\\reservation-system.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Youcode\\Desktop\\projet asp\\reservation-system.csproj": {
+    "C:\\Users\\Youcode\\Documents\\GitHub\\reservation-system\\reservation-system.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Youcode\\Desktop\\projet asp\\reservation-system.csproj",
+        "projectUniqueName": "C:\\Users\\Youcode\\Documents\\GitHub\\reservation-system\\reservation-system.csproj",
         "projectName": "reservation-system",
-        "projectPath": "C:\\Users\\Youcode\\Desktop\\projet asp\\reservation-system.csproj",
+        "projectPath": "C:\\Users\\Youcode\\Documents\\GitHub\\reservation-system\\reservation-system.csproj",
         "packagesPath": "C:\\Users\\Youcode\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Youcode\\Desktop\\projet asp\\obj\\",
+        "outputPath": "C:\\Users\\Youcode\\Documents\\GitHub\\reservation-system\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.16.1, )"
+            },
             "NToastNotify": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -77,6 +81,14 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[5.0.0-alpha.1, )"
+            },
+            "xunit.assert": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [

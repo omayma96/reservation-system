@@ -6,6 +6,7 @@ using NToastNotify;
 using reservation_system.Data;
 using reservation_system.Migrations;
 using reservation_system.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,12 @@ namespace reservation_system.Controllers
     [Authorize]
     public class ReservationsController : Controller
     {
+      
 
         private readonly ApplicationDbContext _Context;
         private readonly UserManager<ReservationUser> _userManager;
         private readonly IToastNotification toastNotification;
+       
 
         public ReservationsController(ApplicationDbContext Context, UserManager<ReservationUser> userManager, IToastNotification toastNotification)
         {
@@ -29,6 +32,7 @@ namespace reservation_system.Controllers
             this.toastNotification = toastNotification;
 
         }
+
 
         // la liste de toutes les réservations , On ne prend pas en considération la date
         // Joiture de 2 tables pour avoir les infos des apprenants et ainsi leurs réservations
@@ -373,5 +377,7 @@ namespace reservation_system.Controllers
             }
 
         }
+
+
     }
 }

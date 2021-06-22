@@ -10,10 +10,11 @@ using Microsoft.Extensions.Hosting;
 using reservation_system.Data;
 using reservation_system.Migrations;
 using reservation_system.Models;
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using reservation_system.Services;
 
 namespace reservation_system
 {
@@ -33,10 +34,11 @@ namespace reservation_system
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseMySql(
                      Configuration.GetConnectionString("Default")));
-
+            services.AddScoped<IReservationTypeService, ReservationTypeService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+   
 
             services.AddIdentity<ReservationUser, IdentityRole>()
 

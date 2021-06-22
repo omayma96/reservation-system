@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using reservation_system.Data;
 using reservation_system.Models;
+using reservation_system.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,24 @@ namespace reservation_system.Controllers
     public class ReservationsTypeController : Controller
     {
         private readonly ApplicationDbContext _context;
+
+        private readonly IReservationTypeService _reservationTypeService;
+
+        public ReservationsTypeController(IReservationTypeService reservationTypeService)
+        {
+            _reservationTypeService = reservationTypeService;
+        }
+        public async Task<string> GetReservationTypeById(int ResID)
+        {
+            var result = await _reservationTypeService.GetReservationTypebyId(ResID);
+            return result;
+        }
+
+        public async Task<ReservationType> GetReservationTypeDetails(int ResID)
+        {
+            var result = await _reservationTypeService.GetReservationTypeDetails(ResID);
+            return result;
+        }
         public ReservationsTypeController(ApplicationDbContext context)
         {
             _context = context;

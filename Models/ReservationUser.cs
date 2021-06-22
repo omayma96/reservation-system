@@ -9,6 +9,7 @@ namespace reservation_system.Models
 {
     public class ReservationUser : IdentityUser
     {
+        public int id;
         [Required(ErrorMessage = "Entrer votre nom !!")]
         [Display(Name = "Nom")]
         public string FName { get; set; }
